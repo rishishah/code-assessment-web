@@ -7,7 +7,7 @@ import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
 
 const ProductsContainer = ({ products, addToCart }) => (
-  <ProductsList title="Products">
+  <ProductsList>
     {products.map(product =>
       <ProductItem
         key={product.id}
@@ -20,7 +20,6 @@ const ProductsContainer = ({ products, addToCart }) => (
 ProductsContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
   })).isRequired,

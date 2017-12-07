@@ -2,8 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Product = ({ price, inventory, quantity, title, onAdd, onRemove, onDecrease }) => (
-  <div>
-    {title} - &#36;{price}{inventory ? ` x ${inventory}` : null}
+  <div className="product-details">
+    <div className="product-details-title-wrapper">
+      <div className="product-title">{title}</div>
+      <div className="product-price">{`$${price}`}</div>
+    </div>
+    <div className="product-inventory">{inventory ? `${inventory} remaining` : null}</div>
     { onRemove 
       ? (
         <button onClick={onRemove}>Remove</button>
@@ -35,3 +39,5 @@ Product.propTypes = {
 }
 
 export default Product
+
+// {title} - &#36;{price}{inventory ? ` x ${inventory}` : null}
