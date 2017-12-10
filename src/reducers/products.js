@@ -9,7 +9,7 @@ const products = (state, action) => {
         inventory: state.inventory - 1
       }
     case REMOVE_FROM_CART:
-    const { quantity } = action
+      const { quantity } = action
       return {
         ...state,
         inventory: state.inventory + quantity
