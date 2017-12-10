@@ -17,11 +17,11 @@ const addedIds = (state = initialState.addedIds, action) => {
         return state
       }
       return [ ...state, action.productId ]
-    case REMOVE_FROM_CART:
-      if (state.indexOf(action.productId) !== -1) {
-        return state.filter(id => id !== action.productId)
-      }
-      return state
+    // case REMOVE_FROM_CART:
+    //   if (state.indexOf(action.productId) !== -1) {
+    //     return state.filter(id => id !== action.productId)
+    //   }
+    //   return state
     default:
       return state
   }
