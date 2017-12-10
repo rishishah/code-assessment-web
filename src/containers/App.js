@@ -13,14 +13,9 @@ const App = () => (
 
         <p className="title">Acme Store</p>
 
-        <div className="cart-btn-container">
-          <CartIcon
-            height={14}
-            width={17}
-          />
-       
-          <span className="cart-contents">Your cart is empty</span>
-        </div>
+        <CartContainer />
+
+      
 
       </div>
 
@@ -35,6 +30,17 @@ const App = () => (
 )
 
 export default App
+
+{/* <div className="cart-btn-container">
+<CartIcon
+  height={14}
+  width={17}
+/>
+
+<span className="cart-contents">Your cart is empty</span>
+
+
+</div> */}
 
 {/* <CartContainer /> */}
 

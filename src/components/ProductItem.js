@@ -15,6 +15,7 @@ const imageURLs = {
 const ProductItem = ({ product, onAddToCartClicked }) => (
   <div className="product-item">
     <img
+      className="product-image"
       src={imageURLs[product.title.toLowerCase()]}
       />
     <div className="product-details-container">
@@ -24,7 +25,7 @@ const ProductItem = ({ product, onAddToCartClicked }) => (
         inventory={product.inventory} />
       <button
         style={{ marginBottom: '40px' }}
-        className={product.inventory > 0 ? "primary-btn" : 'primary-btn-disabled'}
+        className="primary-btn"
         onClick={onAddToCartClicked}
         disabled={product.inventory > 0 ? '' : 'disabled'}>
         {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}

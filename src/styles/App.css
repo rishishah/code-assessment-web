@@ -41,15 +41,75 @@ div {
   padding-top: 9px;
 }
 
+.cart-btn {
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+}
+
+.cart-btn:hover {
+  color: #407FC0;
+}
+
+.cart-btn:hover #cart-icon {
+  fill: #407FC0;
+}
+
+.cart-btn:disabled {
+  opacity: 0.3;
+}
+
+.cart-btn:disabled #cart-icon {
+  opacity: 0.3;
+}
+
 .cart-contents {
   padding-left: 8px;
   font-size: 14px;
 }
 
+.cart {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: unset;
+  margin: 0px 50px;
+}
+
+.cart-title {
+  font-size: 38px;
+  line-height: 32px;
+  letter-spacing: -0.8px;
+}
+
+.cart-divider {
+  margin: 26px 0px 0px 0px;
+  height: 1px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.empty-cartmsg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-bottom: 25px;
+}
+
+.empty-cartmsg-text {
+  font-size: 21px;
+  color: #919191;
+  letter-spacing: -0.44px;
+  line-height: 28px;
+  text-align: center;
+  max-width: 250px;
+  margin-top: 25px;
+}
+
 .title-divider {
   margin: 34px 0px 0px 0px;
   height: 1px;
-  background: #DADADA;
   border-bottom: 1px solid #DADADA;
 }
 
@@ -61,7 +121,6 @@ div {
   display: flex;
   background: #ffffff;
   border-radius: 8px;
-
   margin-top: 29px;
 }
 
@@ -80,6 +139,12 @@ div {
 .product-details-title-wrapper {
   display: flex;
   align-items: center;
+}
+
+.product-image {
+  max-width: 452px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .product-title {
@@ -116,7 +181,7 @@ div {
   text-transform: uppercase;
 }
 
-.primary-btn-disabled {
+.primary-btn:disabled {
   width: 139px;
   height: 41px;
   border-radius: 100px;
@@ -131,4 +196,39 @@ div {
 
 .primary-btn:hover {
   background: #407FC0;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 14px;
+  max-width: 780px;
+  min-height: 678px;
+  margin: 176px auto 0px auto;
+  padding: 29px;
+  border: 1px solid #E1E1E1;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.17);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(9,9,9, 0.09), rgba(9,9,9, 0.09)), #F2F4F7;
+  padding: 50 px;
+  z-index: 1;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.modal-close-btn {
+  cursor: pointer;
 }

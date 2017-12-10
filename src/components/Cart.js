@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Product from './Product'
+import CartIcon from './CartIcon'
 
 const Cart = ({ products, total, onCheckoutClicked, onAddToCartClicked, onRemoveFromCartClicked, onDecreaseQuantClicked }) => {
   const hasProducts = products.length > 0
@@ -17,18 +18,33 @@ const Cart = ({ products, total, onCheckoutClicked, onAddToCartClicked, onRemove
       />
     )
   ) : (
-    <em>Please add some products to cart.</em>
+    <em>Please add some products to your cart.</em>
+  )
+
+  const emptyCartMsg = (
+    <div className="empty-cartmsg-container">
+      <CartIcon height={76} width={95} fill="#BDBDBD" />
+      <div className="empty-cartmsg-text" >Please add some products to your cart.</div>
+    </div>
   )
 
   return (
-    <div>
-      <h3>Your Cart</h3>
-      <div>{nodes}</div>
-      <p>Total: &#36;{total}</p>
-      <button onClick={onCheckoutClicked}
-        disabled={hasProducts ? '' : 'disabled'}>
-        Checkout
-      </button>
+    <div className="cart">
+      <header className="cart-title" >Your cart</header>
+      <div className="cart-divider" />
+      { hasProducts
+        ? (
+          <div>
+            <div>{nodes}</div>
+            <p>Total: &#36;{total}</p>
+            <button onClick={onCheckoutClicked}
+              disabled={hasProducts ? '' : 'disabled'}>
+              Checkout
+            </button>
+          </div>
+          )
+        : emptyCartMsg
+      }
     </div>
   )
 }
