@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ProductsList = ({ title, children }) => (
+const ProductsList = ({ children }) => (
   <div className="product-list">
-    <div>{children}</div>
+    {children}
   </div>
 )
 

@@ -14,10 +14,13 @@ const imageURLs = {
 
 const ProductItem = ({ product, onAddToCartClicked }) => (
   <div className="product-item">
-    <img
-      className="product-image"
-      src={imageURLs[product.title.toLowerCase()]}
-      />
+    {/* <div className="product-image-container" > */}
+      <img
+        className="product-image"
+        src={imageURLs[product.title.toLowerCase()]}
+        // style={{ backgroundImage: `url(${imageURLs[product.title.toLowerCase()]})` }}
+        />
+      {/* </div> */}
     <div className="product-details-container">
       <Product
         title={product.title}
