@@ -1,6 +1,8 @@
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  INCREASE_QUANTITY,
+  DECREASE_QUANTITY,
   CHECKOUT_REQUEST,
   CHECKOUT_FAILURE
 } from '../constants/ActionTypes'
@@ -38,6 +40,13 @@ const quantityById = (state = initialState.quantityById, action) => {
       let remainingIds = Object.assign({}, state)
       delete remainingIds[productId]
       return remainingIds
+    case DECREASE_QUANTITY:
+      if (!state[productId] || state[productId] <= 1) {
+        return state
+      } 
+      return { ...state,
+        [productId]: state[productId] - 1
+      }
     default:
       return state
   }

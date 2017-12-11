@@ -23,13 +23,23 @@ export const addToCart = productId => (dispatch, getState) => {
   }
 }
 
-export const removeFromCart = productId => (dispatch, getState) => {
-  const { cart } = getState();
-  dispatch({
-    type: types.REMOVE_FROM_CART,
+const cartQuantityReducer = (productId, type, getState) => {
+  const { cart } = getState()
+  return {
+    type,
     quantity: cart.quantityById[productId],
     productId
-  })
+  }
+} 
+
+export const removeFromCart = productId => (dispatch, getState) => {
+  const { REMOVE_FROM_CART } = types
+  dispatch(cartQuantityReducer(productId, REMOVE_FROM_CART, getState))
+}
+
+export const decreaseQuantity = productId => (dispatch, getState) => {
+  const { DECREASE_QUANTITY } = types
+  dispatch(cartQuantityReducer(productId, DECREASE_QUANTITY, getState))
 }
 
 export const checkout = products => (dispatch, getState) => {

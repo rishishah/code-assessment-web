@@ -98,6 +98,30 @@ describe('reducers', () => {
           ])
         })
       })
+
+      describe('when the quantity of an item is decreased in the cart', () => {
+        
+        beforeEach(() => {
+          state = reducer(state, { type: 'ADD_TO_CART', productId: 1 })
+          state = reducer(state, { type: 'ADD_TO_CART', productId: 1 })
+          state = reducer(state, { type: 'DECREASE_QUANTITY', productId: 1, quantity: 2 })
+          state = reducer(state, { type: 'DECREASE_QUANTITY', productId: 2, quantity: 1 })
+        })
+
+        it('the inventory is increased', () => {
+          expect(products.getVisibleProducts(state)).toEqual([
+            {
+              id: 1,
+              title: 'Product 1',
+              inventory: 1
+            }, {
+              id: 2,
+              title: 'Product 2',
+              inventory: 1
+            }
+          ])
+        })
+      })
     })
   })
 })
