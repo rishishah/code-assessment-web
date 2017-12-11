@@ -56,7 +56,7 @@ div {
   opacity: 0.3;
 }
 
-.cart-contents {
+.cart-btn-contents {
   padding-left: 8px;
   font-size: 14px;
 }
@@ -78,6 +78,18 @@ div {
 .cart-divider {
   margin: 26px 0px 0px 0px;
   border-bottom: 1px solid #E8E8E8;
+}
+
+.cart-contents-container {
+  display: flex;
+}
+
+.cart-item {
+
+}
+
+.cart-item-image {
+
 }
 
 .empty-cartmsg-container {
@@ -140,13 +152,6 @@ div {
   border-bottom-left-radius: 8px;
 }
 
-/* .product-image-container {
-  object-fit: cover;
-  max-width: 452px;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-} */
-
 .product-title {
   font-size: 38px;
   height: 43px;
@@ -184,6 +189,7 @@ div {
   letter-spacing: -0.15px;
   color: #fff;
   text-transform: uppercase;
+  padding: 2px 0px 0px 0px;
 }
 
 .primary-btn:disabled {
@@ -229,16 +235,70 @@ div {
   cursor: pointer;
 }
 
-/* @media (max-width: 960px) {
-  .product-details-container {
-    margin-left: 5%;
-  }
+.quantity-display {
+  display: flex;
+}
 
-  .product-title {
-    font-size: 35px;
-    padding-right: 8px;
-  }
-} */
+.quantity-display-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 96px;
+  border-top: 1px solid #EDEDED;
+  border-bottom: 1px solid #EDEDED;
+  font-size: 14px;
+  letter-spacing: -0.59px;
+}
+
+.quantity-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #F5F5F5;
+  color: #8E939C;
+  height: 40px;
+  width: 95px;
+  border: unset;
+  padding: 0px 0px 0px 0px;
+}
+
+.quantity-btn:hover {
+  background: #5E97D1;
+  color: #FFF;
+}
+
+.quantity-btn:hover #minus-icon {
+  stroke: #FFF;
+}
+
+.quantity-btn:hover #plus-icon {
+  stroke: #FFF;
+}
+
+.quantity-btn:disabled {
+  background: #F9F9F9;
+  color: #DEDEDE;
+}
+
+.quantity-btn:disabled #minus-icon {
+  stroke: #DEDEDE;
+}
+
+.quantity-btn:hover #plus-icon {
+  stroke: #FFF;
+}
+
+.minus-btn {
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  padding-left: 4px;
+}
+
+.plus-btn {
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
 
 @media (max-width: 900px) {
   .inner-container {
@@ -258,7 +318,7 @@ div {
     padding-top: unset;
   }
 
-  .cart-contents {
+  .cart-btn-contents {
     padding-left: 8px;
     font-size: 14px;
   }

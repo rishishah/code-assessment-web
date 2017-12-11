@@ -14,13 +14,10 @@ const imageURLs = {
 
 const ProductItem = ({ product, onAddToCartClicked }) => (
   <div className="product-item">
-    {/* <div className="product-image-container" > */}
-      <img
-        className="product-image"
-        src={imageURLs[product.title.toLowerCase()]}
-        // style={{ backgroundImage: `url(${imageURLs[product.title.toLowerCase()]})` }}
-        />
-      {/* </div> */}
+    <img
+      className="product-image"
+      src={imageURLs[product.title.toLowerCase()]}
+      />
     <div className="product-details-container">
       <Product
         title={product.title}
@@ -29,7 +26,7 @@ const ProductItem = ({ product, onAddToCartClicked }) => (
       <button
         className="primary-btn product-add-btn"
         onClick={onAddToCartClicked}
-        disabled={product.inventory > 0 ? '' : 'disabled'}>
+        disabled={product.inventory < 1}>
         {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
       </button>
     </div>
