@@ -10,6 +10,8 @@ const setup = props => {
   return {
     component: component,
     button: component.find('button'),
+    minusBtn: component.find('.minus-btn'),
+    plusBtn: component.find('.plus-btn'),
     props: props
   }
 }
@@ -27,7 +29,7 @@ describe('Product component', () => {
     })
   })
 
-  describe('when given remove from cart function', () => {
+  describe('when given remove-from-cart function', () => {
     const testProps = { 
       title: 'Diamonds', 
       price: 2999.99, 
@@ -35,7 +37,7 @@ describe('Product component', () => {
       onRemove: jest.fn()
     }
 
-    it('should render Remove message', () => {
+    it('should render Remove button', () => {
       const { button } = setup(testProps)
       expect(button.text()).toMatch('Remove')
     })
@@ -44,6 +46,25 @@ describe('Product component', () => {
       const { button, props } = setup(testProps)
       button.simulate('click')
       expect(props.onRemove).toBeCalled()
+    })
+  })
+
+  describe('when given update-quantity functions', () => {
+    const testProps = { 
+      title: 'Diamonds', 
+      price: 2999.99, 
+      inventory: 3,
+      quantity: 1,
+      onAdd: jest.fn(),
+      onDecrease: jest.fn()
+    }
+
+    it('should call an action on button click', () => {
+      const { minusBtn, plusBtn, props } = setup(testProps)
+      plusBtn.simulate('click')
+      minusBtn.simulate('click')
+      expect(props.onAdd).toBeCalled()
+      expect(props.onDecrease).toBeCalled()
     })
   })
 })

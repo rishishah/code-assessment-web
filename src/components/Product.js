@@ -14,9 +14,9 @@ const Product = ({ price, inventory, quantity, title, onAdd, onRemove, onDecreas
       onDecrease
       ? (
         <span>
-          <button onClick={onDecrease}>-</button>
+          <button className="minus-btn quantity-btn" onClick={onDecrease}>-</button>
           {quantity}
-          <button onClick={onAdd}>+</button>
+          <button className="plus-btn quantity-btn" onClick={onAdd}>+</button>
         </span>
       )
       : null

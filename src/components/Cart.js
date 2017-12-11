@@ -37,7 +37,9 @@ Cart.propTypes = {
   products: PropTypes.array,
   total: PropTypes.string,
   onCheckoutClicked: PropTypes.func,
-  onRemoveFromCartClicked: PropTypes.func
+  onAddToCartClicked: PropTypes.func,
+  onRemoveFromCartClicked: PropTypes.func,
+  onDecreaseQuantClicked: PropTypes.func
 }
 
 export default Cart
