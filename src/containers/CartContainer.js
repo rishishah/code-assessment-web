@@ -29,7 +29,9 @@ class CartContainer extends React.Component {
       <div className="cart-btn-container">
         <span className="cart-btn" onClick={this.toggleModal}>
           <CartIcon height={14} width={17} />
-          <span className="cart-contents">Your cart is empty</span>
+          <span className="cart-contents">
+          {products.length > 0 ? `(${products.length})` : 'Your cart is empty'}
+          </span>
         </span>
         <Modal show={showingModal} onClose={this.toggleModal} >
           <Cart
