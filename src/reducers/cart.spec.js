@@ -57,6 +57,22 @@ describe('reducers', () => {
           quantityById: { 1: 1 }
         })
       })
+
+      it('should handle DECREASE_QUANTITY action', () => {
+        const state = {
+          addedIds: [ 1, 2 ],
+          quantityById: { 1: 1, 2: 2 }
+        }
+
+        expect(cart(state, { type: 'DECREASE_QUANTITY', productId: 1})).toEqual({
+          addedIds: [ 1, 2 ],
+          quantityById: { 1: 1, 2: 2 }
+        })
+        expect(cart(state, { type: 'DECREASE_QUANTITY', productId: 2})).toEqual({
+          addedIds: [ 1, 2 ],
+          quantityById: { 1: 1, 2: 1 }
+        })
+      })
     })
   })
 })

@@ -8,9 +8,9 @@ const PRODUCT_ENDPOINT = 'http://tech.work.co/shopping-cart/products.json'
 
 const mapToProductModel = products =>
   products.map(product => {
-    const { id, productTitle, price, inventory } = product;
-    return { id, title: productTitle, price: price.value, inventory };
-  });
+    const { id, productTitle, price, inventory } = product
+    return { id, title: productTitle, price: price.value, inventory }
+  })
 
 export default {
   getProducts: cb =>
