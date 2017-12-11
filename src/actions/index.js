@@ -23,6 +23,15 @@ export const addToCart = productId => (dispatch, getState) => {
   }
 }
 
+export const removeFromCart = productId => (dispatch, getState) => {
+  const { cart } = getState();
+  dispatch({
+    type: types.REMOVE_FROM_CART,
+    quantity: cart.quantityById[productId],
+    productId
+  })
+}
+
 export const checkout = products => (dispatch, getState) => {
   const { cart } = getState()
 
