@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import CartItem from './CartItem'
 import CartIcon from './CartIcon'
 
+export const taxRate = 0.0807
+
 const Cart = ({ products, total, onCheckoutClicked, onAddToCartClicked, onRemoveFromCartClicked, onDecreaseQuantClicked }) => {
   const subTotal = Number(total)
-  const taxRate = 0.0807
   const taxes = subTotal * taxRate
   const finalCost = subTotal + taxes
-  const hasProducts = products.length > 0
+  const hasProducts = products ? products.length > 0 : false;
   const cartItems = (
     products.map(product =>
       <CartItem
@@ -52,7 +53,7 @@ const Cart = ({ products, total, onCheckoutClicked, onAddToCartClicked, onRemove
 
   const emptyCartMsg = (
     <div className="empty-cartmsg-container">
-      <CartIcon className="empty-cartmsg-icon" height={76} width={95} fill="#BDBDBD" />
+      <CartIcon className="empty-cartmsg-icon" height="76" width="95" fill="#BDBDBD" />
       <div className="empty-cartmsg-text" >Please add some products to your cart.</div>
     </div>
   )
