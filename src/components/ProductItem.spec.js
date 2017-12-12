@@ -43,7 +43,7 @@ describe('ProductItem component', () => {
 
   it('should not disable button', () => {
     const { button } = setup(productProps)
-    expect(button.prop('disabled')).toEqual('')
+    expect(button.prop('disabled')).toEqual(false)
   })
 
   it('should call action on button click', () => {
@@ -64,7 +64,7 @@ describe('ProductItem component', () => {
 
     it('should disable button', () => {
       const { button } = setup(productProps)
-      expect(button.prop('disabled')).toEqual('disabled')
+      expect(button.prop('disabled')).toEqual(true)
     })
   })
 })

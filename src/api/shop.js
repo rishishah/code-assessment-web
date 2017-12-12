@@ -1,8 +1,3 @@
-/**
- * Mocking client-server processing
- */
-import _products from './products.json'
-
 const TIMEOUT = 100
 const PRODUCT_ENDPOINT = 'http://tech.work.co/shopping-cart/products.json'
 
