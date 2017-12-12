@@ -15,6 +15,7 @@ const imageURLs = {
 const ProductItem = ({ product, onAddToCartClicked }) => (
   <div className="product-item">
     <img
+      alt=""
       className="product-image"
       src={imageURLs[product.title.toLowerCase()]}
       />

@@ -1,16 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class Modal extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentWillReceiveProps(nextProps) {
     const { show } = nextProps
     if (show && document && document.body) {
       document.body.className = document.body.className.replace(/ ?modal-open/, '')
-      const existing = document.body.className;
+      const existing = document.body.className
       document.body.className = existing + (existing ? ' ' : '') + 'modal-open'
     } else if (document && document.body) {
       document.body.className = document.body.className.replace(/ ?modal-open/, '')

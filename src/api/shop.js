@@ -1,8 +1,3 @@
-/**
- * Mocking client-server processing
- */
-import _products from './products.json'
-
 const TIMEOUT = 100
 const PRODUCT_ENDPOINT = 'http://tech.work.co/shopping-cart/products.json'
 
@@ -17,6 +12,5 @@ export default {
     fetch(PRODUCT_ENDPOINT)
       .then(response => response.json())
       .then(data => cb(mapToProductModel(data))),
-  // getProducts: (cb, timeout) => setTimeout(() => cb(_products), timeout || TIMEOUT),
   buyProducts: (payload, cb, timeout) => setTimeout(() => cb(), timeout || TIMEOUT)
 }

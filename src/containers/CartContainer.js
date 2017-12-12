@@ -22,7 +22,7 @@ class CartContainer extends React.Component {
 
   render() {
     const { products, total, checkout, addToCart, removeFromCart, decreaseQuantity } = this.props
-    const { showingModal } = this.state;
+    const { showingModal } = this.state
     const hasProducts = products.length > 0
     const checkoutClick = () => checkout(products)
 

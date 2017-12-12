@@ -15,6 +15,7 @@ const CartItem = ({ product, onRemove, onAdd, onDecrease }) => (
   <div className="cart-item">
     <div className="cart-item-details-container" >
       <img
+        alt=""
         className="cart-item-image"
         src={imageURLs[product.title.toLowerCase()]}
         />

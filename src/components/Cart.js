@@ -9,7 +9,7 @@ const Cart = ({ products, total, onCheckoutClicked, onAddToCartClicked, onRemove
   const subTotal = Number(total)
   const taxes = subTotal * taxRate
   const finalCost = subTotal + taxes
-  const hasProducts = products ? products.length > 0 : false;
+  const hasProducts = products ? products.length > 0 : false
   const cartItems = (
     products.map(product =>
       <CartItem
