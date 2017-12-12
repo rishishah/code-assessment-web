@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Product from './Product'
 
 import chronograph from '../images/chronograph.png'
 import quartz from '../images/quartz.png'
@@ -19,7 +18,7 @@ const CartItem = ({ product, onRemove, onAdd, onDecrease }) => (
         className="cart-item-image"
         src={imageURLs[product.title.toLowerCase()]}
         />
-      <div className="cart-item-details-container">
+      <div className="cart-item-description">
         <div className="cart-item-title-wrapper">
           <div className="cart-item-title">{product.title}</div>
           <div className="cart-item-price">{`$${product.price}`}</div>

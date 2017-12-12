@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const CartIcon = ({ width, height, fill }) => (
-    <svg width={`${width}px`} height={`${height}px`} viewBox="0 0 17 14" version="1.1" xmlns="http://www.w3.org/2000/svg">
+const CartIcon = ({ width, height, fill, className }) => (
+    <svg className={className} width={`${width}px`} height={`${height}px`} viewBox="0 0 17 14" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
           <g transform="translate(-18.000000, -66.000000)" fill={ fill ? fill : "#222222"} fillRule="nonzero">
               <g transform="translate(18.000000, 21.000000)">
@@ -18,7 +18,8 @@ const CartIcon = ({ width, height, fill }) => (
 CartIcon.propTypes = {
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired,
+  fill: PropTypes.string,
+  className: PropTypes.string,
 }
-
 
 export default CartIcon

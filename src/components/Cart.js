@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import CartItem from './CartItem'
-import Product from './Product'
 import CartIcon from './CartIcon'
 
 const Cart = ({ products, total, onCheckoutClicked, onAddToCartClicked, onRemoveFromCartClicked, onDecreaseQuantClicked }) => {
+  const subTotal = Number(total)
+  const taxRate = 0.0807
+  const taxes = subTotal * taxRate
+  const finalCost = subTotal + taxes
   const hasProducts = products.length > 0
   const cartItems = (
     products.map(product =>
@@ -18,47 +21,47 @@ const Cart = ({ products, total, onCheckoutClicked, onAddToCartClicked, onRemove
     )
   )
 
-  const emptyCartMsg = (
-    <div className="empty-cartmsg-container">
-      <CartIcon height={76} width={95} fill="#BDBDBD" />
-      <div className="empty-cartmsg-text" >Please add some products to your cart.</div>
+  const cartItemsView = (
+    <div className="cart-contents-container">
+      <div className="cart-item-container">{cartItems}</div>
+      <div className="cart-checkout-container">
+        <div className="cart-summary-container">
+          <div className="cart-subtotal-container">
+            <span className="summary-item-title">Subtotal</span>
+            <span className="summary-item-price">{`$${subTotal}`}</span>
+          </div>
+          <div className="cart-taxes-container">
+            <span className="summary-item-title">Taxes</span>
+            <span className="summary-item-price">{`$${taxes.toFixed(2)}`}</span>
+          </div>
+          <div className="cart-total-container">
+            <span className="summary-item-title">Total</span>
+            <span className="summary-item-price">{`$${finalCost.toFixed(2)}`}</span>
+          </div>
+        </div>
+        <button 
+          className="primary-btn"
+          id="checkout-btn"
+          onClick={onCheckoutClicked}
+          disabled={!hasProducts}>
+          Checkout
+        </button>
+      </div>
     </div>
   )
 
-  const subTotal = Number(total)
-  const taxRate = 0.0807
-  const taxes = subTotal * taxRate
-  const finalCost = subTotal + taxes
+  const emptyCartMsg = (
+    <div className="empty-cartmsg-container">
+      <CartIcon className="empty-cartmsg-icon" height={76} width={95} fill="#BDBDBD" />
+      <div className="empty-cartmsg-text" >Please add some products to your cart.</div>
+    </div>
+  )
 
   return (
     <div className="cart">
       <header className="cart-title" >Your cart</header>
       <div className="cart-divider" />
-      { hasProducts
-        ? (
-          <div className="cart-contents-container">
-            <div className="cart-item-container">{cartItems}</div>
-            <div className="cart-total-container">
-              <div className="cart-total-divider"></div>
-              <div>
-                <span>Subtotal</span> <span>{`$${subTotal}`}</span>
-              </div>
-              <div>
-                <span>Taxes</span> <span>{`$${taxes.toFixed(2)}`}</span>
-              </div>
-              <div className="cart-total-divider"></div>
-              <div>
-                <span>Total</span> <span>{`$${finalCost.toFixed(2)}`}</span>
-              </div>
-              <button className="primary-btn checkout-btn" onClick={onCheckoutClicked}
-                disabled={!hasProducts}>
-                Checkout
-              </button>
-            </div>
-          </div>
-          )
-        : emptyCartMsg
-      }
+      { hasProducts ? cartItemsView : emptyCartMsg }
     </div>
   )
 }

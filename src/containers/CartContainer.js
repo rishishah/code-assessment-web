@@ -7,7 +7,6 @@ import Cart from '../components/Cart'
 import CartIcon from '../components/CartIcon'
 import Modal from '../components/Modal'
 
-
 class CartContainer extends React.Component {
   constructor(props) {
     super(props)
@@ -24,48 +23,41 @@ class CartContainer extends React.Component {
   render() {
     const { products, total, checkout, addToCart, removeFromCart, decreaseQuantity } = this.props
     const { showingModal } = this.state;
+    const hasProducts = products.length > 0
+    const checkoutClick = () => checkout(products)
 
     return (
       <div className="cart-btn-container">
         <span className="cart-btn" onClick={this.toggleModal}>
           <CartIcon height={14} width={17} />
           <span className="cart-btn-contents">
-          {products.length > 0 ? `(${products.length})` : 'Your cart is empty'}
+          {hasProducts ? `(${products.length})` : 'Your cart is empty'}
           </span>
         </span>
         <Modal show={showingModal} onClose={this.toggleModal} >
           <Cart
             products={products}
             total={total}
-            onCheckoutClicked={() => checkout(products)}
+            onCheckoutClicked={checkoutClick}
             onAddToCartClicked={addToCart}
             onRemoveFromCartClicked={removeFromCart} 
             onDecreaseQuantClicked={decreaseQuantity} />
+          { hasProducts
+            && ( 
+              <button
+                className="primary-btn"
+                id="checkout-btn-modal"
+                onClick={checkoutClick}
+                disabled={!hasProducts} >
+                  Checkout
+              </button> 
+            )
+          }
         </Modal>
       </div>
     )
   }
 }
-
-
-
-// const CartContainer = ({ products, total, checkout }) => {
-
-//   <div className="cart-btn-container">
-//     <CartIcon
-//       height={14}
-//       width={17}
-//     />
-//     <span className="cart-contents">Your cart is empty</span>
-//   </div>
-
-//    (
-//       <Cart
-//         products={products}
-//         total={total}
-//         onCheckoutClicked={() => checkout(products)} />
-//   )
-// }
 
 CartContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
